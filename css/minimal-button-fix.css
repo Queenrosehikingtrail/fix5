@@ -1,0 +1,56 @@
+/* Minimal Button Fix - Queen Rose Hiking Trail App
+ * ONLY targets main action buttons in Trail Map & GPS section
+ * Does NOT touch section dropdown buttons or any JavaScript functionality
+ */
+
+/* Target ONLY the main action buttons in the controls area */
+#map-section .controls button {
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+}
+
+/* Specific targeting for the main action buttons by their text content */
+button[onclick*="getCurrentLocation"],
+button[onclick*="addWaypoint"], 
+button[onclick*="downloadKML"],
+button[onclick*="toggleLiveTracking"] {
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    #map-section .controls button {
+        height: 40px !important;
+        min-height: 40px !important;
+        padding: 10px 14px !important;
+        font-size: 15px !important;
+    }
+    
+    button[onclick*="getCurrentLocation"],
+    button[onclick*="addWaypoint"], 
+    button[onclick*="downloadKML"],
+    button[onclick*="toggleLiveTracking"] {
+        height: 40px !important;
+        min-height: 40px !important;
+        padding: 10px 14px !important;
+        font-size: 15px !important;
+    }
+}
+
+/* Ensure we don't interfere with any section buttons or dropdowns */
+.app-section button:not(#map-section .controls button) {
+    /* Explicitly preserve existing styles for all other buttons */
+    height: auto !important;
+    min-height: auto !important;
+    padding: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
